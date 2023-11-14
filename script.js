@@ -1,3 +1,20 @@
+//----- Computer Selection -----//
+
+//Declare an array for the game choices
+let gameChoices = ['Rock', 'Paper', 'Scissors'];
+
+//Get a random choice
+const computer = gameChoices[Math.floor(Math.random() * gameChoices.length)];
+
+// Display computer selection.
+console.log("Computer:");
+console.log(computer);
+console.log(" ")
+
+
+
+
+
 //----- Player Selection -----//
 
 // Get the button selection.
@@ -10,49 +27,36 @@ rockBtn.addEventListener("click", rock);
 paperBtn.addEventListener("click", paper);
 scissorsBtn.addEventListener("click", scissors);
 
-// Execute an action based on the player selection.
-function rock(){
-    console.log("player chose rock.")
-};
 
-function paper(){
-    console.log("player chose paper.")
-};
 
-function scissors(){
-    console.log("player chose scissors.")
-};
 
-// PSUEDOCODE //
-// 1. Write a function that will return a random index of an array.
-//Declare an array for the game choices
-let gameChoices = ['Rock', 'Paper', 'Scissors'];
-//Get a random choice
-const computerSelection = gameChoices[Math.floor(Math.random() * gameChoices.length)];
-//Log the function for testing
-console.log(computerSelection);
 
-// 2. Write a function that will return the winner of the game.
-//Determine the winner
-function playRound(computerSelection, playerSelection) {
-    if (playerSelection === "Paper" && (computerSelection === "Rock" || computerSelection === "Scissors")) {
-        return "You win! Paper beats Rock.";
-    } else if (computerSelection === "Paper" && playerSelection === "Paper") {
-        return "Draw! Try again.";
-    } else if (computerSelection === "Scissors" && playerSelection === "Paper") {
-        return "You lose! Scissors beats Paper.";
+//----- Decide Winner -----//
+
+// Rock Chosen
+function rock(computer) {
+    console.log("You:");
+    console.log("Rock!")
+    if (computer === "Scissors") {
+        console.log("You win!");
+    } else if (computer === "Paper") {
+        console.log("You lose.")
+    } else {
+        console.log("Draw! Try again.")
     }
 };
 
-//Declare the player's choice
-const playerSelection = "Paper";
+// Paper Chosen
+function paper() {
+    console.log("player chose paper.")
+};
 
-//Log the results
-console.log(playRound(computerSelection, playerSelection));
+//Scissors Chosen
+function scissors() {
+    console.log("player chose scissors.")
+};
 
 
 
-// PSUEDOCODE //
-// 1. Take in a user's input
-// Use event listener to get a user's input
+
 
