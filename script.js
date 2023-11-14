@@ -1,67 +1,44 @@
-//----- Computer Selection -----//
+//----- Computer & Player Choices -----//
 
-//Declare an array for the game choices
-let gameChoices = ['Rock', 'Paper', 'Scissors'];
+// Declare an array for the computer's choices.
+let computerChoices = ['Rock', 'Paper', 'Scissors'];
 
-//Get a random choice
-const computer = gameChoices[Math.floor(Math.random() * gameChoices.length)];
-
-// Display computer selection.
-console.log("Computer:");
-console.log(computer);
-console.log(" ")
-
-
-
-
-
-//----- Player Selection -----//
-
-// Get the button selection.
+// Get the buttons for the player's choices.
 const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
 
-// Add event listener to the buttons.
-rockBtn.addEventListener("click", rock);
-paperBtn.addEventListener("click", paper);
-scissorsBtn.addEventListener("click", scissors);
 
 
 
 
+//----- Play The Game -----//
 
-//----- Decide Winner -----//
+// Get the player's selection.
+rockBtn.addEventListener("click", () => checkResult('Rock'));
+paperBtn.addEventListener("click", () => checkResult('Paper'));
+scissorsBtn.addEventListener("click", () => checkResult('Scissors'));
 
-// Rock Chosen
-function rock() {
-    if (computer === "Scissors") {
-        console.log("You win!");
-    } else if (computer === "Paper") {
+// Check the results.
+function checkResult(player) {
+
+    // Get the computer's selection.
+    const computer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+    // Display the computer and player selections.
+    console.log("Computer: ", computer);
+    console.log("Player: ", player);
+
+    // Determine the winner.
+    if(computer === player){
+        console.log("Draw! Try again.")
+    } else if (
+        (computer === 'Rock' && player === 'Scissors') ||
+        (computer === 'Paper' && player === 'Rock') ||
+        (computer === 'Scissors' && player === 'Paper')
+    ){
         console.log("You lose.")
     } else {
-        console.log("Draw! Try again.")
-    }
-};
-
-// Paper Chosen
-function paper() {
-    if (computer === "Rock") {
-        console.log("You win!");
-    } else if (computer === "Scissors") {
-        console.log("You lose.")
-    } else {
-        console.log("Draw! Try again.")
-    }
-};
-
-//Scissors Chosen
-function scissors() {
-    if (computer === "Paper") {
-        console.log("You win!");
-    } else if (computer === "Rock") {
-        console.log("You lose.")
-    } else {
-        console.log("Draw! Try again.")
+        console.log("You win!")
     }
 };
