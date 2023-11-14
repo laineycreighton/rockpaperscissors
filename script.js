@@ -50,12 +50,18 @@ function paper() {
         console.log("You win!");
     } else if (computer === "Scissors") {
         console.log("You lose.")
-    } else if (computer === "Paper") {
+    } else {
         console.log("Draw! Try again.")
     }
 };
 
 //Scissors Chosen
 function scissors() {
-    // console.log("player chose scissors.")
+    if (computer === "Paper") {
+        console.log("You win!");
+    } else if (computer === "Rock") {
+        console.log("You lose.")
+    } else {
+        console.log("Draw! Try again.")
+    }
 };
