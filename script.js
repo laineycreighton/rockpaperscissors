@@ -34,9 +34,7 @@ scissorsBtn.addEventListener("click", scissors);
 //----- Decide Winner -----//
 
 // Rock Chosen
-function rock(computer) {
-    console.log("You:");
-    console.log("Rock!")
+function rock() {
     if (computer === "Scissors") {
         console.log("You win!");
     } else if (computer === "Paper") {
@@ -48,15 +46,16 @@ function rock(computer) {
 
 // Paper Chosen
 function paper() {
-    console.log("player chose paper.")
+    if (computer === "Rock") {
+        console.log("You win!");
+    } else if (computer === "Scissors") {
+        console.log("You lose.")
+    } else if (computer === "Paper") {
+        console.log("Draw! Try again.")
+    }
 };
 
 //Scissors Chosen
 function scissors() {
-    console.log("player chose scissors.")
+    // console.log("player chose scissors.")
 };
-
-
-
-
-
